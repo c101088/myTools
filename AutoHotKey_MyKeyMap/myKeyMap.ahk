@@ -3,13 +3,18 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+; ===========================================
+; 常用短语
+; ===========================================
+
+::/mail::15312731439@163.com
+::/mail2::15950502686@163.com
 
 
 
-
-
-
-
+; =============================================
+; 快捷键设置
+; =============================================
 
 
 
@@ -29,9 +34,7 @@ return
  
 ; open 'cmd' in the current directory
 ;
-LWin & c::
-    OpenCmdInCurrent()
-return
+
 
  
  
@@ -150,7 +153,6 @@ OpenVscodeInCurrent()
 }
 
 
-
 LWin & h::
 	Run www.google.com 
 return
@@ -169,8 +171,27 @@ LWin & z::
 	OpenVscodeInCurrent()
 return
 
+LWin & c::
+    OpenCmdInCurrent()
+return
 
 LWin::return
+
+
+; =======================================
+; ctrl+shift+c 拷贝文件路径，将输入法调整的快捷键变为Lwin+space
+; =======================================
+^+c::
+    send ^c
+    sleep,200
+    clipboard=%clipboard% ;%null%
+    tooltip,%clipboard%
+    sleep,500
+    tooltip,
+return
+
+
+
 
 
 
