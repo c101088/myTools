@@ -4,6 +4,9 @@
 将grd转为json文件
 ## AutoHotKey_MyKeyMap
 调整系统快捷键，大幅增强键盘功能
+### 快捷短语
+1. /mail-->153
+2. /mail2-->159
 ### 快捷键
 1. Lwin+b：百度
 2. Lwin+t：百度翻译
