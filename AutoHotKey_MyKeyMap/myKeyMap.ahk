@@ -83,11 +83,11 @@ OpenCmdInCurrent()
 	    ; MsgBox,%res_path%
         ; Run,  cmder.exe "-new_console:d:%res_path%" 
         ; Run,  cmder.exe /START "E:/Ubuntu64"
-        Run,  wt.exe -d "%res_path%"
+        Run,  wt.exe -d "%res_path%";focus-tab -t 1
     }
     else
     {
-        Run,  wt.exe -d "%res_path%"
+        Run,  wt.exe -d "C:/";focus-tab -t 1
     }
 
 }
