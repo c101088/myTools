@@ -56,21 +56,6 @@ Explorer_GetSelection(hwnd="") {
 }
 
 
- 
-; Opens the command shell 'cmd' in the directory browsed in Explorer.
-; Note: expecting to be run when the active window is Explorer.
-;
-
-; Gui, Add, ListBox, vMyListBox1 gMyListBox1 w100 r10,, Red|Green|Blue|Black|White
-; Gui Show
-; return 
-; GuiControlGet, MyListBox1
-; MsgBox %MyListBox1%
-; MsgBox ,"fasdfa"
-
-
-
-
 OpenCmdInCurrent(res_path,name)
 {
 
@@ -84,8 +69,6 @@ OpenCmdInCurrent(res_path,name)
         Run,  wt.exe -d "%res_path%" -p "%name%"
     }
 }
-
-
 
 
 
@@ -103,7 +86,6 @@ OpenIdeaInCurrent()
     ;     }
         
     ; }
-
     res_path := Explorer_GetSelection()
     if InStr(res_path, ":")!=0
     {
@@ -113,7 +95,6 @@ OpenIdeaInCurrent()
     {
         Run, idea64.exe 
     }
-
 }
 
 OpenVscodeInCurrent()
