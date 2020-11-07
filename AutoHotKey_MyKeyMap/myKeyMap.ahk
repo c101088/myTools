@@ -115,7 +115,7 @@ OpenVscodeInCurrent()
 
     if InStr(res_path, ":")!=0
     {
-        Run, code.exe "%res_path%"
+        Run, code "%res_path%"
     }
     else
     {

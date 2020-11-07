@@ -1,0 +1,39 @@
+nohup: ignoring input
+[W:pyppeteer.chromium_downloader] start chromium download.
+Download may take a few minutes.
+  0%|          | 0/108773488 [00:00<?, ?it/s]  0%|          | 30720/108773488 [00:00<11:30, 157510.59it/s]  0%|          | 51200/108773488 [00:00<12:53, 140640.01it/s]  0%|          | 71680/108773488 [00:00<14:41, 123310.13it/s]  0%|          | 81920/108773488 [00:00<15:36, 116003.08it/s]  0%|          | 102400/108773488 [00:00<17:47, 101794.05it/s]  0%|          | 112640/108773488 [00:01<17:52, 101345.35it/s]  0%|          | 133120/108773488 [00:01<16:06, 112413.87it/s]  0%|          | 153600/108773488 [00:01<19:35, 92407.03it/s]   0%|          | 174080/108773488 [00:01<20:23, 88792.22it/s]  0%|          | 215040/108773488 [00:02<20:38, 87683.67it/s]  0%|          | 225280/108773488 [00:02<21:51, 82789.91it/s]  0%|          | 235520/108773488 [00:03<53:41, 33695.96it/s]  0%|          | 256000/108773488 [00:03<42:01, 43030.20it/s]  0%|          | 266240/108773488 [00:03<41:17, 43798.01it/s]  0%|          | 276480/108773488 [00:03<41:00, 44098.45it/s]  0%|          | 286720/108773488 [00:03<39:16, 46040.03it/s]  0%|          | 296960/108773488 [00:04<35:34, 50823.40it/s]  0%|          | 307200/108773488 [00:04<33:07, 54568.87it/s]  0%|          | 317440/108773488 [00:04<30:27, 59353.58it/s]  0%|          | 327680/108773488 [00:04<31:58, 56537.02it/s]  0%|          | 358400/108773488 [00:04<27:09, 66546.27it/s]  0%|          | 378880/108773488 [00:05<26:37, 67861.85it/s]  0%|          | 389120/108773488 [00:05<28:14, 63975.76it/s]  0%|          | 399360/108773488 [00:05<27:48, 64946.97it/s]  0%|          | 409600/108773488 [00:05<33:52, 53305.86it/s]  0%|          | 419840/108773488 [00:05<30:06, 59983.17it/s]  0%|          | 430080/108773488 [00:06<31:14, 57800.01it/s]  0%|          | 440320/108773488 [00:06<33:25, 54018.33it/s]  0%|          | 450560/108773488 [00:06<41:05, 43941.06it/s]  0%|          | 460800/108773488 [00:06<35:58, 50173.34it/s]  0%|          | 471040/108773488 [00:06<34:35, 52189.76it/s]  0%|          | 481280/108773488 [00:07<41:52, 43096.06it/s]  0%|          | 501760/108773488 [00:07<34:55, 51659.84it/s]  0%|          | 512000/108773488 [00:07<33:15, 54261.33it/s]  0%|          | 522240/108773488 [00:07<29:43, 60709.68it/s]  0%|          | 532480/108773488 [00:07<28:45, 62713.88it/s]  0%|          | 542720/108773488 [00:08<30:32, 59063.39it/s]  1%|          | 552960/108773488 [00:08<50:45, 35535.49it/s]  1%|          | 563200/108773488 [00:08<48:26, 37226.35it/s]  1%|          | 573440/108773488 [00:09<40:42, 44296.02it/s]  1%|          | 583680/108773488 [00:09<39:40, 45455.68it/s]  1%|          | 604160/108773488 [00:09<34:34, 52137.18it/s]  1%|          | 614400/108773488 [00:09<33:50, 53271.09it/s]  1%|          | 624640/108773488 [00:09<31:38, 56968.54it/s]  1%|          | 634880/108773488 [00:10<31:48, 56663.70it/s]  1%|          | 645120/108773488 [00:10<33:13, 54230.24it/s]  1%|          | 665600/108773488 [00:10<31:29, 57213.35it/s]  1%|          | 675840/108773488 [00:11<49:37, 36298.90it/s]  1%|          | 706560/108773488 [00:11<38:28, 46821.93it/s]  1%|          | 716800/108773488 [00:11<38:35, 46659.90it/s]  1%|          | 727040/108773488 [00:11<35:49, 50264.40it/s]  1%|          | 737280/108773488 [00:11<39:21, 45741.89it/s]  1%|          | 747520/108773488 [00:12<39:46, 45258.00it/s]  1%|          | 757760/108773488 [00:13<1:33:51, 19179.03it/s]  1%|          | 778240/108773488 [00:13<1:13:29, 24488.80it/s]  1%|          | 788480/108773488 [00:13<1:00:56, 29533.33it/s]  1%|          | 798720/108773488 [00:14<55:52, 32210.75it/s]    1%|          | 808960/108773488 [00:14<49:17, 36507.46it/s]  1%|          | 819200/108773488 [00:14<59:15, 30365.52it/s]  1%|          | 829440/108773488 [00:14<50:37, 35539.90it/s]Traceback (most recent call last):
+  File "test.py", line 22, in <module>
+    asyncio.get_event_loop().run_until_complete(main())
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/asyncio/base_events.py", line 603, in run_until_complete
+    self.run_forever()
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/asyncio/base_events.py", line 570, in run_forever
+    self._run_once()
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/asyncio/base_events.py", line 1859, in _run_once
+    handle._run()
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "test.py", line 15, in main
+    browser = await launch()
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/site-packages/pyppeteer/launcher.py", line 305, in launch
+    return await Launcher(options, **kwargs).launch()
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/site-packages/pyppeteer/launcher.py", line 119, in __init__
+    download_chromium()
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/site-packages/pyppeteer/chromium_downloader.py", line 146, in download_chromium
+    extract_zip(download_zip(get_url()), DOWNLOADS_FOLDER / REVISION)
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/site-packages/pyppeteer/chromium_downloader.py", line 99, in download_zip
+    for chunk in data.stream(10240):
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/site-packages/urllib3/response.py", line 576, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/site-packages/urllib3/response.py", line 519, in read
+    data = self._fp.read(amt) if not fp_closed else b""
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/http/client.py", line 454, in read
+    n = self.readinto(b)
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/http/client.py", line 498, in readinto
+    n = self.fp.readinto(b)
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/clz/anaconda3/envs/py3/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
