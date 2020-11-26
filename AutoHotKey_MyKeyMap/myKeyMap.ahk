@@ -525,7 +525,7 @@ CapsLock & v:: Send, ^v                                              ;|
 CapsLock & a:: Send, ^a                                              ;|
 CapsLock & y:: Send, ^y                                              ;|
 CapsLock & f:: Send, ^{Right}                                        ;|
-CapsLock & b:: Send, ^{Left}                                         ;|
+CapsLock & g:: Send, ^{Left}                                         ;|
 ;---------------------------------------------------------------------o
 
 
