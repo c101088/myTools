@@ -35,25 +35,63 @@ return
 ;
 
 
+Explorer_GetWindow(hwnd="")  
+{  
+    ; thanks to jethrow for some pointers here  
+    WinGet, process, processName, % "ahk_id" hwnd := hwnd? hwnd:WinExist("A")  
+    WinGetClass class, ahk_id %hwnd%  
+  
+    if (process!="explorer.exe")  
+        return  
+    if (class ~= "(Cabinet|Explore)WClass")  
+    {  
+        for window in ComObjCreate("Shell.Application").Windows  
+            if (window.hwnd==hwnd)  
+                return window  
+    }  
+    else if (class ~= "Progman|WorkerW")   
+        return "desktop" ; desktop found  
+}  
+
+
+Explorer_GetPath(hwnd="")  
+{  
+    if !(window := Explorer_GetWindow(hwnd))  
+        return ErrorLevel := "ERROR"  
+    if (window="desktop")  
+        return A_Desktop  
+    path := window.LocationURL  
+    path := RegExReplace(path, "ftp://.*@","ftp://")  
+    StringReplace, path, path, file:///  
+    StringReplace, path, path, /, \, All   
+    ; thanks to polyethene  
+    Loop  
+        If RegExMatch(path, "i)(?<=%)[\da-f]{1,2}", hex)  
+            StringReplace, path, path, `%%hex%, % Chr("0x" . hex), All  
+        Else Break  
+    return path  
+}  
+
+
  
 ; f1::MsgBox % Explorer_GetSelection()
 
-Explorer_GetSelection(hwnd="") {
-    WinGet, process, processName, % "ahk_id" hwnd := hwnd? hwnd:WinExist("A")
-    WinGetClass class, ahk_id %hwnd%
-    if  (process = "explorer.exe") 
-        if (class ~= "(Cabinet|Explore)WClass") {
-            for window in ComObjCreate("Shell.Application").Windows
-                if  (window.hwnd==hwnd)
-                    path := window.Document.FocusedItem.path
+; Explorer_GetSelection(hwnd="") {
+;     WinGet, process, processName, % "ahk_id" hwnd := hwnd? hwnd:WinExist("A")
+;     WinGetClass class, ahk_id %hwnd%
+;     if  (process = "explorer.exe") 
+;         if (class ~= "(Cabinet|Explore)WClass") {
+;             for window in ComObjCreate("Shell.Application").Windows
+;                 if  (window.hwnd==hwnd)
+;                     path := window.Document.FocusedItem.path
 
-            SplitPath, path,,dir
-        }
-        dir :=StrReplace(dir, "\","/",All)
-        temp := StrLen(dir)
-        dir :=StrReplace(dir,"`r","",All)
-        return dir
-}
+;             SplitPath, path,,dir
+;         }
+;         dir :=StrReplace(dir, "\","/",All)
+;         temp := StrLen(dir)
+;         dir :=StrReplace(dir,"`r","",All)
+;         return dir
+; }
 
 
 OpenCmdInCurrent(res_path,name)
@@ -86,7 +124,7 @@ OpenIdeaInCurrent()
     ;     }
         
     ; }
-    res_path := Explorer_GetSelection()
+    res_path := Explorer_GetPath()
     if InStr(res_path, ":")!=0
     {
         Run,  idea64.exe "%res_path%"
@@ -111,7 +149,7 @@ OpenVscodeInCurrent()
     ;     }
         
     ; }
-    res_path := Explorer_GetSelection()
+    res_path := Explorer_GetPath()
 
     if InStr(res_path, ":")!=0
     {
@@ -125,16 +163,17 @@ OpenVscodeInCurrent()
 }
 
 
-LWin & h::
-	Run www.google.com 
-return
+; LWin & h::
+; 	path :=Explorer_GetPath()
+;     MsgBox, %path%
+; return
 
-LWin & b::
-	Run www.baidu.com	
-return
-LWin & t::
-	Run https://fanyi.baidu.com
-return
+; LWin & b::
+; 	Run www.baidu.com	
+; return
+; LWin & t::
+; 	Run https://fanyi.baidu.com
+; return
 LWin & j::
 	OpenIdeaInCurrent()
 return
@@ -145,7 +184,7 @@ return
 
 LWin & c::
 
-    res_path := Explorer_GetSelection()
+    res_path := Explorer_GetPath()
     Gui, Color, E9E7EF
     Gui, Font, s15  ; 设置大字体 (32 磅).
     Gui, Add, ListBox, vMyListBox gMyListBox r5,Windows PowerShell|cmd|PowershellSsh|Azure Cloud Shell|git-bash
@@ -486,7 +525,7 @@ CapsLock & v:: Send, ^v                                              ;|
 CapsLock & a:: Send, ^a                                              ;|
 CapsLock & y:: Send, ^y                                              ;|
 CapsLock & f:: Send, ^{Right}                                        ;|
-CapsLock & b:: Send, ^{Left}                                         ;|
+CapsLock & g:: Send, ^{Left}                                         ;|
 ;---------------------------------------------------------------------o
 
 
