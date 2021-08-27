@@ -100,7 +100,7 @@ return
 
 
 SetCapsLockState, AlwaysOff
-CapsLock::Send, {ESC}
+CapsLock::Send, {}
 {
 
 ;=====================================================================o
