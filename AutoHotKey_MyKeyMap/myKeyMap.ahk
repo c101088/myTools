@@ -1,38 +1,3 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-
-; ===========================================
-; 常用短语
-; ===========================================
-
-::/mail::15312731439@163.com
-::/mail2::15950502686@163.com
-
-
-; =============================================
-; 快捷键设置
-; =============================================
-
-
-
-SetTitleMatchMode RegEx
-return
- 
- 
- 
-; #IfWinActive ahk_class ExploreWClass|CabinetWClass
- 
-;     ; open 'cmd' in the current directory
-;     ;
-;     LWin & c::
-; 		OpenCmdInCurrent()
-; 	return
-; #IfWinActive
- 
-; open 'cmd' in the current directory
-;
 
 
 Explorer_GetWindow(hwnd="")  
@@ -52,7 +17,6 @@ Explorer_GetWindow(hwnd="")
     else if (class ~= "Progman|WorkerW")   
         return "desktop" ; desktop found  
 }  
-
 
 Explorer_GetPath(hwnd="")  
 {  
@@ -74,24 +38,6 @@ Explorer_GetPath(hwnd="")
 
 
  
-; f1::MsgBox % Explorer_GetSelection()
-
-; Explorer_GetSelection(hwnd="") {
-;     WinGet, process, processName, % "ahk_id" hwnd := hwnd? hwnd:WinExist("A")
-;     WinGetClass class, ahk_id %hwnd%
-;     if  (process = "explorer.exe") 
-;         if (class ~= "(Cabinet|Explore)WClass") {
-;             for window in ComObjCreate("Shell.Application").Windows
-;                 if  (window.hwnd==hwnd)
-;                     path := window.Document.FocusedItem.path
-
-;             SplitPath, path,,dir
-;         }
-;         dir :=StrReplace(dir, "\","/",All)
-;         temp := StrLen(dir)
-;         dir :=StrReplace(dir,"`r","",All)
-;         return dir
-; }
 
 
 OpenCmdInCurrent(res_path,name)
@@ -108,79 +54,6 @@ OpenCmdInCurrent(res_path,name)
     }
 }
 
-
-
-OpenIdeaInCurrent()
-{
-    ; WinGetText, full_path, A
-	; loop,Parse,full_path,`n
-    ; {
-    ;     tempText :=A_LoopField
-    ;     if RegExMatch(tempText,": ") !=0
-    ;     {
-    ;         ; MsgBox,%A_LoopField%
-    ;         tempArr := StrSplit(A_LoopField," ")
-    ;         res_path :=tempArr[2]
-    ;     }
-        
-    ; }
-    res_path := Explorer_GetPath()
-    if InStr(res_path, ":")!=0
-    {
-        Run,  idea64.exe "%res_path%"
-    }
-    else
-    {
-        Run, idea64.exe 
-    }
-}
-
-OpenVscodeInCurrent()
-{
-    ; WinGetText, full_path, A
-	; loop,Parse,full_path,`n
-    ; {
-    ;     tempText :=A_LoopField
-    ;     if RegExMatch(tempText,": ") !=0
-    ;     {
-    ;         ; MsgBox,%A_LoopField%
-    ;         tempArr := StrSplit(A_LoopField," ")
-    ;         res_path :=tempArr[2]
-    ;     }
-        
-    ; }
-    res_path := Explorer_GetPath()
-
-    if InStr(res_path, ":")!=0
-    {
-        Run, code "%res_path%"
-    }
-    else
-    {
-        Run, code 
-    }
-
-}
-
-
-; LWin & h::
-; 	path :=Explorer_GetPath()
-;     MsgBox, %path%
-; return
-
-; LWin & b::
-; 	Run www.baidu.com	
-; return
-; LWin & t::
-; 	Run https://fanyi.baidu.com
-; return
-LWin & j::
-	OpenIdeaInCurrent()
-return
-
-LWin & z::
-	OpenVscodeInCurrent()
-return
 
 LWin & c::
 
@@ -227,16 +100,7 @@ return
 
 
 SetCapsLockState, AlwaysOff
-
-; #ifWinActive,ahk_class Emacs
-; {
-; 	Capslock::Appskey
-; 	return
-	
-; }
-; #ifWinActive
-
-; #if !WinActive("ahk_class Emacs")
+CapsLock::Send, {ESC}
 {
 
 ;=====================================================================o
