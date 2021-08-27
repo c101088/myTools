@@ -50,7 +50,7 @@ OpenCmdInCurrent(res_path,name)
     }
     else
     {
-        Run,  wt.exe -d "%res_path%" -p "%name%"
+        Run,  wt.exe
     }
 }
 
