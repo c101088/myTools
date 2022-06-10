@@ -33,6 +33,7 @@ Explorer_GetPath(hwnd="")
         If RegExMatch(path, "i)(?<=%)[\da-f]{1,2}", hex)  
             StringReplace, path, path, `%%hex%, % Chr("0x" . hex), All  
         Else Break  
+    ; StringReplace , path, \ , "\\", , All
     return path  
 }  
 
@@ -42,16 +43,33 @@ Explorer_GetPath(hwnd="")
 
 OpenCmdInCurrent(res_path,name)
 {
-
+    ; jetbrainsPath := "C:\\Users\\" username "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\JetBrains Toolbox\\"
+    jetbrainsPath :=A_Programs "\\JetBrains Toolbox\\"
     ; MsgBox ,%name%
-    if InStr(res_path, ":")!=0
-    {
-        Run,  wt.exe -d "%res_path%" -p "%name%"
+    if(name="CLion" or name="IntelliJ IDEA Ultimate" or name="PyCharm Professional"){
+        tempPath:=jetbrainsPath name
+        if(StrLen(res_path)==3){  ;处理磁盘根路径
+            Run,"%tempPath%" %res_path%
+        }else{
+            Run,"%tempPath%" "%res_path%"
+        }
+
+    }else{
+        if InStr(res_path, ":")!=0
+        {
+            if(StrLen(res_path)==3){
+                Run,  wt.exe -d %res_path% -p "%res_path%"
+            }else{
+                Run,  wt.exe -d "%res_path%" -p "%res_path%"
+            }
+           
+        }
+        else
+        {
+            Run,  wt.exe
+        }
     }
-    else
-    {
-        Run,  wt.exe
-    }
+
 }
 
 
@@ -60,8 +78,8 @@ LWin & c::
     res_path := Explorer_GetPath()
     Gui, Color, E9E7EF
     Gui, Font, s15  ; 设置大字体 (32 磅).
-    Gui, Add, ListBox, vMyListBox gMyListBox r5,Windows PowerShell|cmd|PowershellSsh|Azure Cloud Shell|git-bash
-    Gui, Add, Button, Default x40 y130 w180, OK
+    Gui, Add, ListBox, vMyListBox gMyListBox r6,Windows PowerShell|CLion|IntelliJ IDEA Ultimate|PyCharm Professional|cmd|git-bash
+    Gui, Add, Button, Default x40 y150 w180, OK
     ; WinSet, TransColor, E9E7EF 150
     Gui, Show
     return
